@@ -11,18 +11,20 @@ const App = () => {
   ]);
 
   const addGoalHandler = enteredText => {
-    setCourseGoals(prevGoals => {
-      const updatedGoals = [...prevGoals];
-      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
-      return updatedGoals;
-    });
+    // setCourseGoals(prevGoals => {
+    //   const updatedGoals = [...prevGoals];
+    //   updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
+    //   return updatedGoals;
+    // });
+    setCourseGoals(prevGoals => [{ text: enteredText, id: Math.random().toString() }, ...prevGoals])
   };
 
   const deleteItemHandler = goalId => {
-    setCourseGoals(prevGoals => {
-      const updatedGoals = prevGoals.filter(goal => goal.id !== goalId);
-      return updatedGoals;
-    });
+    // setCourseGoals(prevGoals => {
+    //   const updatedGoals = prevGoals.filter(goal => goal.id !== goalId);
+    //   return updatedGoals;
+    // });
+    setCourseGoals(prevGoals => prevGoals.filter(goal => goal.id !== goalId))
   };
 
   let content = (
